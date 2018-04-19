@@ -3,12 +3,10 @@ import CardList from '../component/CardList';
 import { View, Button, Picker, ScrollView, StyleSheet } from 'react-native';
 import ListStore from '../stores/listStore';
 import { observer } from 'mobx-react';
+import Input from '../component/Input';
 
 @observer
 export default class Home extends Component {
-  // static navigationOptions = {
-  //   title: ''
-  // };
   constructor(props) {
     super(props);
   }

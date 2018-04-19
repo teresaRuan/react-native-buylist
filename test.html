@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    <script>
+                    var eleShow = $('.img-view')[0];
+            var eleImg = $('.img-big');
+            var reg = new RegExp('[a-zA-z]+://[^\s, ^"]*');
+        document.body.onclick = function(e){
+            var target = $(e.target);
+            if(target.hasClass('imgNav-img')) {
+                eleShow.style.display = 'block';
+                var src = target.style.backgroundImage.match(reg)[0];
+                eleImg.attr('src', src);
+            }
+        }
+    </script>
+</body>
+</html>

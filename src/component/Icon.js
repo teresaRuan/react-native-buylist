@@ -9,7 +9,6 @@ let iconMap = {
 export default class Icon extends Component {
   render() {
     const { name } = this.props;
-    console.log(String.fromCharCode(iconMap[name]));
     return (
       <Text style={[styles.icon]}>{String.fromCharCode(iconMap[name])}</Text>
     );

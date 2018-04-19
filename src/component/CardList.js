@@ -12,7 +12,7 @@ export default class CardList extends Component {
       <View style={styles.container}>
         {/* <Text style={styles.title}>全部用户</Text> */}
         {data.map((item, i) => {
-          return <CardItem navigation={navigation} data={item} key={item.id} />;
+          return <CardItem navigation={navigation} data={item} key={i} />;
         })}
       </View>
     );
