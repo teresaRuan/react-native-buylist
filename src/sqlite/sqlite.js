@@ -256,9 +256,9 @@ export default class SQLite {
     );
   }
   // 获取每件商品的信息
-  queryProduct() {
+  queryOrderProduct() {
     return this.handleQuery(
-      'SELECT ITEM.pid,PRODUCT.name,PRODUCT.price,PRODUCT.img,PRODUCT.unit, SUM(num) FROM ITEM ' +
+      'SELECT ITEM.pid,PRODUCT.name,PRODUCT.price,PRODUCT.img,PRODUCT.unit, SUM(num) as num FROM ITEM ' +
         'INNER JOIN PRODUCT ON ITEM.pid=PRODUCT.pid GROUP BY ITEM.pid;'
     );
   }

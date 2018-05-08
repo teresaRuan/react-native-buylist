@@ -34,7 +34,7 @@ export const fetchDel = orderId => sqlite.delPersonOrder(orderId);
 export const updateOrder = (id, num) => sqlite.updateOrder(id, num);
 
 // 获取每个产品的目前基本信息
-export const fetchProductInfo = () => sqlite.queryProduct();
+export const fetchProductInfo = () => sqlite.queryOrderProduct();
 /*
 用户列表页面
 {

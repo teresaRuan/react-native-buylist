@@ -4,16 +4,25 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 export default class ListItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
+    this._handleUpdate = this._handleUpdate.bind(this);
+  }
+  static getDerivedStateFromProps(nextProps, p) {
+    console.log(nextProps);
+    return nextProps;
+  }
+  _handleUpdate(item, i) {
+    this.props.showUpdate(item, i);
   }
   render() {
-    const { list } = this.props.list;
+    const list = this.props.list;
     console.log(list);
     return (
       <View>
         {list &&
-          list.map(item => {
+          list.map((item, i) => {
             return (
-              <View style={[style.row, style.container]}>
+              <View style={[style.row, style.container]} key={item.pid}>
                 <View style={style.img}>
                   <Image />
                 </View>
@@ -23,10 +32,10 @@ export default class ListItem extends Component {
                     <Text style={style.name}>¥{item.price || '-'}</Text>
                   </View>
                   <Text style={[style.dis, style.label]}>
-                    需购买量 <Text style={style.num}>{item.SUM(num)}</Text>
+                    需购买量 <Text style={style.num}>{item.num}</Text>
                   </Text>
                   <Text style={[style.dis, style.label]}>
-                    实购买量 <Text style={style.num}>{item.buy}</Text>
+                    实购买量 <Text style={style.num}>{item.buy || '-'}</Text>
                   </Text>
                   <Text style={[style.dis, style.label]}>
                     售价
@@ -34,7 +43,10 @@ export default class ListItem extends Component {
                   </Text>
                   <View style={[style.row, style.between]}>
                     <View style={[style.btn, style.upBtn]}>
-                      <Text style={[style.btnContent, style.upContent]}>
+                      <Text
+                        style={[style.btnContent, style.upContent]}
+                        onPress={() => this._handleUpdate(item, i)}
+                      >
                         更新
                       </Text>
                     </View>

@@ -18,6 +18,12 @@ export default class Input extends Component {
       lineScale: new Animated.Value(0)
     };
   }
+  handleChange(val) {
+    console.log(val);
+    this.setState({
+      val: val
+    });
+  }
   handleFocus() {
     if (!this.val) {
       Animated.timing(this.state.moveY, {
@@ -37,7 +43,8 @@ export default class Input extends Component {
       }).start();
     }
   }
-  handleBlur() {
+  handleBlur(val) {
+    console.log(val);
     if (!this.state.val) {
       Animated.timing(this.state.moveY, {
         toValue: 28,
@@ -57,7 +64,7 @@ export default class Input extends Component {
     }
   }
   render() {
-    const { label } = this.props;
+    const { label, value } = this.props;
     return (
       <View style={style.container}>
         <Animated.Text
@@ -79,8 +86,10 @@ export default class Input extends Component {
         </Animated.Text>
         <TextInput
           style={style.input}
+          onChange={this.handleChange.bind(this)}
           onBlur={this.handleBlur.bind(this)}
           onFocus={this.handleFocus.bind(this)}
+          value={value}
         />
         <View>
           <Text style={style.line} />

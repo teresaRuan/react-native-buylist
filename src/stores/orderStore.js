@@ -9,7 +9,6 @@ class OrderStore {
     let that = this;
     try {
       fetchProductInfo().then(result => {
-        console.log(result);
         that.orderList = result.data;
       });
     } catch (err) {

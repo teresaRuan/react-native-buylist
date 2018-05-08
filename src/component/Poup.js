@@ -4,15 +4,19 @@ import Input from './Input';
 import Wrap from './WrappComponent';
 
 class Poup extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
-    const { name, num, buyPrice, sale } = this.props;
+    // const { name, num, pid, price, sale } = this.props.info;
+    console.log(this.props.info);
     return (
       <View style={style.container}>
-        <Text style={style.title}>产品名字</Text>
+        <Text style={style.title}>{'产品名称'}</Text>
         <View>
-          <Input label="购买数量" />
-          <Input label="售价" />
-          <Input label="购入价格" />
+          <Input label="购买数量" value={''} />
+          <Input label="售价" value={''} />
+          <Input label="购入价格" value={''} />
         </View>
         <View style={style.btnContainer}>
           <Text style={style.btn}>确认更改</Text>
